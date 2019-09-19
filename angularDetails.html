@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript" src="angular.js"></script>
+<script type="text/javascript" src="test.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>   
+</head>
+<body>
+<div ng-app="detailsCheck">
+		<div ng-controller="checkDetails">
+			<div class="form ml-5 mt-4">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-md-4">
+							<div class="card">
+								<div class="card-body">
+									<div class="form-group">
+										<label for="matric"> Enter Matric No:</label>
+										<input class="form-control" type="text" placeholder="Matric No" ng-model="matric">
+									</div>
+									<div class="form-group">
+										<label for="level"> Enter Level:</label>
+										<input class="form-control" type="text" placeholder="Level" ng-model="level">
+									</div>
+									<div class="form-group">
+										<label for="department"> Select Department:</label>
+										<select class="form-control" ng-model="deptSelect" ng-options="x for x in deptArray"></select>
+									</div>
+									<div>
+										<button class="btn btn-success" ng-click="submitMe()">Submit Details</button>
+									</div>
+
+									
+									<!-- <div>{{bring}}</div> -->
+									<div class="form-group">
+										<label for="software">Software:</label>
+										<input class="form-control col-sm-1" type="checkbox" ng-model="checkSoft">
+									<!-- </div> -->
+										<!-- <div class="form-group"> -->
+										<label for="software">Hardware:</label>
+										<input class="form-control col-sm-1" type="checkbox" ng-model="checkHard">
+									<!-- </div> -->
+									<!-- <div class="form-group"> -->
+										<label for="software">Graphics:</label>
+										<input class="form-control col-sm-1" type="checkbox" ng-model="checkGraph">
+									</div>
+
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="card">
+								<div class="card-body">
+									<table class="table table-bordered ">
+										<thead class="text-center">
+											<th>Matric No</th>
+											<th>Level</th>
+											<th>Department</th>
+										</thead>
+
+										<tbody ng-show="checkSoft">
+											<tr class="text-center" ng-repeat="aa in bringOut" ng-if="aa.dept == 'Software'">
+												<td >{{aa.matric}}</td>
+												<td>{{aa.level}}</td>
+												<td>{{aa.dept}}</td>
+											</tr>
+										</tbody>
+
+										<tbody ng-show="checkHard">
+											<tr class="text-center" ng-repeat="aa in bringOut" ng-if="aa.dept == 'Hardware'">
+												<td>{{aa.matric}}</td>
+												<td>{{aa.level}}</td>
+												<td>{{aa.dept}}</td>
+											</tr>
+										</tbody>
+
+										<tbody ng-show="checkGraph">
+											<tr class="text-center" ng-repeat="aa in bringOut" ng-if="aa.dept == 'Graphics'">
+												<td>{{aa.matric}}</td>
+												<td>{{aa.level}}</td>
+												<td>{{aa.dept}}</td>
+											</tr>
+										</tbody>
+									</table>	
+									
+								</div>
+							</div>
+						</div>
+					</div>
+
+			
+			</div>
+
+		</div>
+					
+	</div>
+</div>
+</body>
+</html>
